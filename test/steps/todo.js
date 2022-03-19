@@ -23,11 +23,11 @@ Given('Empty ToDo list', async function () {
  
 });
 
-When('I write {string} to text box and click to add button', async function (text) {
+When(' I write {string} to the text box and click to the add button', async function (text) {
   
 });
 
-Then('I should see {string} item in ToDo list', async function (text) {
+Then('I should see {string} in the TODO list', async function (text) {
    
 });
 
