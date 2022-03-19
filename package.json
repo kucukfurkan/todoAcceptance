@@ -1,0 +1,27 @@
+{
+  "name": "todo-acceptance-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/cucumber-js ./test/features --require ./test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/furkan.moda/todo-acceptance-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/furkan.moda/todo-acceptance-test/issues"
+  },
+  "homepage": "https://gitlab.com/furkan.moda/todo-acceptance-test#readme",
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "cucumber": "^7.0.0-rc.0"
+  },
+  "dependencies": {
+    "selenium-webdriver": "^4.1.1"
+  }
+}

@@ -1,0 +1,33 @@
+const { When, Then, Given, BeforeAll, AfterAll } = require("cucumber");
+const { expect, assert } = require('chai')
+const { By } = require("selenium-webdriver")
+const webdriver = require('selenium-webdriver');
+
+var { setDefaultTimeout } = require('@cucumber/cucumber');
+
+setDefaultTimeout(60 * 1000);
+
+BeforeAll(function () {
+    driver = new webdriver.Builder()
+        .forBrowser('chrome')
+        .build();
+    driver.get('http://localhost:8080/')
+})
+
+AfterAll(async function () {
+    await setDefaultTimeout(60 * 1000);
+    driver.quit();
+})
+
+Given('Empty ToDo list', async function () {
+ 
+});
+
+When('I write {string} to text box and click to add button', async function (text) {
+  
+});
+
+Then('I should see {string} item in ToDo list', async function (text) {
+   
+});
+
