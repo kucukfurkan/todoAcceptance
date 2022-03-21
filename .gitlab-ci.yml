@@ -20,8 +20,6 @@ acceptance_test:
   - cp chromedriver /usr/local/bin
   - rm chromedriver_linux64.zip
   - rm chromedriver
-  - apt-get update
-  - apt-get install -y google-chrome-stable
   - npm i selenium-webdriver
   - npm install --save-dev @cucumber/cucumber
   - npm install
