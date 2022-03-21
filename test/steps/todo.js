@@ -20,14 +20,14 @@ AfterAll(async function () {
 })
 
 Given('Empty ToDo list', async function () {
- 
+ return true
 });
 
 When(' I write {string} to the text box and click to the add button', async function (text) {
-  
+  return true
 });
 
 Then('I should see {string} in the TODO list', async function (text) {
-   
+   return true 
 });
 
