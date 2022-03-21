@@ -7,12 +7,12 @@ var { setDefaultTimeout } = require('@cucumber/cucumber');
 
 setDefaultTimeout(60 * 1000);
 
-// BeforeAll(function () {
-//     driver = new webdriver.Builder()
-//         .forBrowser('chrome')
-//         .build();
-//     driver.get('http://localhost:8080/')
-// })
+BeforeAll(function () {
+    driver = new webdriver.Builder()
+        .forBrowser('chrome')
+        .build();
+    driver.get('http://localhost:8080/')
+})
 
 AfterAll(async function () {
     await setDefaultTimeout(60 * 1000);
