@@ -5,16 +5,16 @@ acceptance_test:
   image: node:lts
   stage: acceptance_test
   script:
-  - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add
-  - sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-  - apt-get update && apt-get install -y google-chrome-stable 
-  - mkdir $CHROMEDRIVER_DIR
-  - CHROMEDRIVER_DIR /chromedriver
-  - CHROME_VERSION=$(google-chrome --product-version | sed -ne 's/[^0-9]*\(\([0-9]\.\)\{0,4\}[0-9][^.]\).*/\1/p'); \
-    CHROMEDRIVER_VERSION=$(curl https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION); \
-    wget -q --continue -P $CHROMEDRIVER_DIR "http://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip"
-  - unzip $CHROMEDRIVER_DIR/chromedriver* -d $CHROMEDRIVER_DIR
-  - ENV PATH $CHROMEDRIVER_DIR:$PATH
+  - apt-get update
+  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb 
+  - dpkg -i google-chrome*.deb 
+  - rm google-chrome*.deb
+  - wget -N http://chromedriver.storage.googleapis.com/89.0.4389.23/chromedriver_linux64.zip
+  - unzip chromedriver_linux64.zip
+  - chmod +x chromedriver
+  - cp chromedriver /usr/local/bin
+  - rm chromedriver_linux64.zip
+  - rm chromedriver
   - apt-get update
   - apt-get install -y google-chrome-stable
   - npm i selenium-webdriver
