@@ -24,10 +24,13 @@ Given('Empty ToDo list', async function () {
 });
 
 When('I write {string} to the text box and click to the add button', async function (text) {
-  return true
+    let addbtn = await driver.findElement(By.id('buttonAdd'));
+    await driver.findElement(By.id('inputPlace')).sendKeys(text);
+    addbtn.click()
 });
 
 Then('I should see {string} in the TODO list', async function (text) {
-   return true 
+    let textarea = await driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/div/p")).getText();
+    assert.equal(text, textarea);
 });
 
