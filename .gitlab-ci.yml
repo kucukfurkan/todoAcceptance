@@ -5,6 +5,8 @@ acceptance_test:
   image: node:lts
   stage: acceptance_test
   script:
-    - npm install
-    - npm install selenium-webdriver
-    - npm run test
+  - npm i selenium-webdriver
+  - npm uninstall @cucumber/cucumber
+  - npm install @cucumber/cucumber
+  - npm install
+  - npm run test
