@@ -24,6 +24,7 @@ acceptance_test:
   - unzip chromedriver_linux64.zip
   - mkdir /tmp/chromedriver/
   - rm -r /tmp/chromedriver/
+  - mkdir /tmp/chromedriver/LATEST_RELEASE
   - wget -O /tmp/chromedriver/LATEST_RELEASE http://chromedriver.storage.googleapis.com/LATEST_RELEASE 
   - latest=$(cat /tmp/chromedriver/LATEST_RELEASE)
   - wget -O /tmp/chromedriver/chromedriver.zip 'http://chromedriver.storage.googleapis.com/'$latest'/chromedriver_linux64.zip
