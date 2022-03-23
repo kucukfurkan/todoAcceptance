@@ -22,6 +22,7 @@ acceptance_test:
   - rm chromedriver
   - rm -rf /tmp/.org.chromium.Chromium*
   - npm i selenium-webdriver
+  - npm uninstall cucumber
   - npm install --save-dev @cucumber/cucumber
   - npm install
   - npm run test
