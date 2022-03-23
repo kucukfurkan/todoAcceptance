@@ -19,8 +19,8 @@ AfterAll(async function () {
     driver.quit();
 })
 
-Given('Empty ToDo list', async function () {
- return true
+Given('There is a text-box to write todo', async function () {
+    let textBox = driver.findElement(By.id('inputPlace')).isDisplayed()
 });
 
 When('I write {string} to the text box and click to the add button', async function (text) {
