@@ -20,7 +20,7 @@ acceptance_test:
   - cp chromedriver /usr/local/bin
   - rm chromedriver_linux64.zip
   - rm chromedriver
-  - exec -a "$0" "$HERE/chrome" "$@"  --no-sandbox
+  - exec -a "$0" "$HERE/chromedriver" "$@"  --no-sandbox
   - rm -rf /tmp/.org.chromium.Chromium*
   - npm i selenium-webdriver
   - npm uninstall cucumber
