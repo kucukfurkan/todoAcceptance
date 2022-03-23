@@ -17,10 +17,11 @@ acceptance_test:
   - wget -N http://chromedriver.storage.googleapis.com/89.0.4389.23/chromedriver_linux64.zip
   - unzip chromedriver_linux64.zip
   - chmod +x chromedriver
-  - cp chromedriver /usr/local/bin
+  - cp chromedriver /usr/bin/google-chrome
   - rm chromedriver_linux64.zip
   - rm chromedriver
   - rm -rf /tmp/.org.chromium.Chromium*
+  - npm i chromedriver
   - npm i selenium-webdriver
   - npm uninstall cucumber
   - npm i cucumber
