@@ -7,7 +7,6 @@ acceptance_test:
   script:
   - wget https://chromedriver.storage.googleapis.com/2.41/chromedriver_linux64.zip
   - sudo apt-get install unzip
-  - wget -N http://chromedriver.storage.googleapis.com/2.29/chromedriver_linux64.zip -P user/local/Downloads
   - unzip user/local/Downloads/chromedriver_linux64.zip -d user/local/Downloads
   - sudo mv -f ~/Downloads/chromedriver /usr/local/share/
   - sudo chmod +x /usr/local/share/chromedriver
