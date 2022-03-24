@@ -5,13 +5,18 @@ acceptance_test:
   image: node:lts
   stage: acceptance_test
   script:
-  - wget https://chromedriver.storage.googleapis.com/2.41/chromedriver_linux64.zip
-  - sudo apt-get install unzip
-  - unzip user/local/Downloads/chromedriver_linux64.zip -d user/local/Downloads
-  - sudo mv -f ~/Downloads/chromedriver /usr/local/share/
-  - sudo chmod +x /usr/local/share/chromedriver
-  - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
-  - sudo ln -s /usr/local/share/chromedriver /usr/bin/chromedriver
+  - apt-get update && apt-get install --quiet --assume-yes python-dev python-pip unzip wget
+  - echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
+  - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+  - apt update
+  - apt install -y google-chrome-stable
+  - cp requirements.txt /tmp/requirements.txt
+  - pip install -r /tmp/requirements.txt
+  - CHROMEDRIVER_VERSION=`wget --no-verbose --output-document - https://chromedriver.storage.googleapis.com/LATEST_RELEASE`
+  - wget --no-verbose --output-document /tmp/chromedriver_linux64.zip http://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
+  - unzip -qq /tmp/chromedriver_linux64.zip -d /opt/chromedriver
+  - chmod +x /opt/chromedriver/chromedriver
+  - ln -fs /opt/chromedriver/chromedriver /usr/local/bin/chromedriver
   - npm i selenium-webdriver
   - npm uninstall @cucumber/cucumber
   - npm install @cucumber/cucumber
