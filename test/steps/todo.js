@@ -11,7 +11,7 @@ BeforeAll(function () {
     driver = new webdriver.Builder()
         .forBrowser('chrome')
         .build();
-    driver.get('http://localhost:8080/')
+    driver.get('https://todo-vue-2cac8.web.app/')
 })
 
 AfterAll(async function () {
@@ -31,6 +31,6 @@ When('I write {string} to the text box and click to the add button', async funct
 
 Then('I should see {string} in the TODO list', async function (text) {
     let textarea = await driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/div/p")).getText();
-    assert.equal(text, textarea);
+    await assert.equal(text, textarea);
 });
 
