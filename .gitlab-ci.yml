@@ -5,13 +5,18 @@ tests1:
   stage: tests1
   image: node:lts
   script:
-    - apt-get update
-    - apt-get install -y wget gnupg ca-certificates
-    - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-    - sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-    - apt-get update
-    - apt-get install -y google-chrome-stable
-    - npm i selenium-webdriver
-    - npm install --save-dev @cucumber/cucumber
+    # - apt-get update
+    # - apt-get install -y wget gnupg ca-certificates
+    # - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+    # - sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+    # - apt-get update
+    # - apt-get install -y google-chrome-stable
+    # - npm i selenium-webdriver
+    # - npm install --save-dev @cucumber/cucumber
+    # - npm install
+    # - npm run test
+    - npm install selenium-webdriver
+    - exec bash
+    - export PATH=$PATH:/Users/bob
     - npm install
     - npm run test
