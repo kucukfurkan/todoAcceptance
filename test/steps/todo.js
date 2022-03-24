@@ -5,11 +5,14 @@ const webdriver = require('selenium-webdriver');
 
 var { setDefaultTimeout } = require('@cucumber/cucumber');
 
+config.capabilities = ['firefox']
+
+
 setDefaultTimeout(60 * 1000);
 
 BeforeAll(function () {
     driver = new webdriver.Builder()
-        .forBrowser('chrome')
+        .forBrowser('firefox')
         .build();
     driver.get('https://todo-vue-2cac8.web.app/')
 })
