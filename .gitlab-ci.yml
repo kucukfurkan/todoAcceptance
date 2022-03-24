@@ -16,7 +16,5 @@ tests1:
     # - npm install
     # - npm run test
     - npm install selenium-webdriver
-    - exec bash
-    - export PATH=$PATH:/Users/bob
     - npm install
     - npm run test
